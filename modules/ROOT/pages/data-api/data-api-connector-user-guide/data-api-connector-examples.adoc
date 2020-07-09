@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../../../assets/images/
 
-=== ​Use Case for Searches for assignments in Anypoint Studio 7
+=== ​Use Case for Searches for Assignments in Anypoint Studio 7
 Commerce Cloud Data Connector is an operation-based connector, which means that when you add the connector to your flow, you need to configure a specific operation for the connector to perform. Commerce Cloud Data Connector supports OAuth2 configuration.
 After successful execution we get the search results for assignments. 
 

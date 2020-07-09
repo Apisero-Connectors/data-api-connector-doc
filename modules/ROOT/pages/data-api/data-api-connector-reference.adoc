@@ -76,85 +76,7 @@ The Commerce Cloud Data Connector is an Operation Based Connector, which means t
 ** HTTP
 ** HTTPS |  Protocol to use for communication. Valid values are HTTP and HTTPS |  HTTP | {nbsp}
 | TLS Configuration a| <<Tls>> |  |  | {nbsp}
-| Reconnection a| <<Reconnection>> |  When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy |  | {nbsp}
-| Client Id a| String |  The OAuth client id as registered with the service provider |  | *{y}*{nbsp}
-| Client Secret a| String |  The OAuth client secret as registered with the service provider |  | *{y}*{nbsp}
-| Token Url a| String |  The service provider's token endpoint URL |  default token URL | {nbsp}
-| Scopes a| String |  The OAuth scopes to be requested during the dance. If not provided, it will default to those in the annotation |  | {nbsp}
-| Object Store a| String |  A reference to the object store that should be used to store each resource owner id's data. If not specified, runtime will automatically provision the default one. |  | {nbsp}
-|===
-
----
-[[DataOauth2Configuration]]
-=== Data Oauth2 Configuration
-
-
-==== Parameters
-
-[%header%autowidth.spread]
-|===
-| Name | Type | Description | Default Value | Required
-|Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *{y}*{nbsp}
-| Connection a| <<DataConfiguration_Oauth2Application, Oauth2 Application Connection Provider>>
- | The connection types that can be provided to this configuration. | | *{y}*{nbsp}
-| Response Timeout a| Number |  The timeout for request to the remote service. |  1 | {nbsp}
-| Response Timeout Unit a| Enumeration, one of:
-
-** NANOSECONDS
-** MICROSECONDS
-** MILLISECONDS
-** SECONDS
-** MINUTES
-** HOURS
-** DAYS |  A time unit which qualifies the Response Timeout |  MINUTES | {nbsp}
-| Name a| String |  The identifier of this element used to reference it in other components |  | *{y}*{nbsp}
-| Expiration Policy a| <<ExpirationPolicy>> |  Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit. |  | {nbsp}
-|===
-
-==== Connection Types
-[[DataOauth2Configuration]]
-===== Oauth2 Application Connection Provider
-
-
-====== Parameters
-
-[%header%autowidth.spread]
-|===
-| Name | Type | Description | Default Value | Required
-| Default Headers a| Array of <<DefaultHeader>> |  |  | {nbsp}
-| Query Parameters a| Array of <<DefaultQueryParam>> |  |  | {nbsp}
-| Connection Timeout a| Number |  The timeout for establishing connections to the remote service |  30 | {nbsp}
-| Connection Timeout Unit a| Enumeration, one of:
-
-** NANOSECONDS
-** MICROSECONDS
-** MILLISECONDS
-** SECONDS
-** MINUTES
-** HOURS
-** DAYS |  A time unit which qualifies the Connection Timeout |  SECONDS | {nbsp}
-| Use Persistent Connections a| Boolean |  If false, each connection will be closed after the first request is completed. |  true | {nbsp}
-| Max Connections a| Number |  The maximum number of outbound connections that will be kept open at the same time |  -1 | {nbsp}
-| Connection Idle Timeout a| Number |  A timeout for how long a connection can remain idle before it is closed |  30 | {nbsp}
-| Connection Idle Timeout Unit a| Enumeration, one of:
-
-** NANOSECONDS
-** MICROSECONDS
-** MILLISECONDS
-** SECONDS
-** MINUTES
-** HOURS
-** DAYS |  A time unit which qualifies the connection Idle Timeout |  SECONDS | {nbsp}
-| Proxy Config a| <<Proxy>> |  Reusable configuration element for outbound connections through a proxy |  | {nbsp}
-| Stream Response a| Boolean |  Whether or not received responses should be streamed |  false | {nbsp}
-| Response Buffer Size a| Number |  The space in bytes for the buffer where the HTTP response will be stored. |  -1 | {nbsp}
-| Base Uri a| String |  Parameter base URI, each instance/tenant gets its own |  default base URI | {nbsp}
-| Protocol a| Enumeration, one of:
-
-** HTTP
-** HTTPS |  Protocol to use for communication. Valid values are HTTP and HTTPS |  HTTP | {nbsp}
-| TLS Configuration a| <<Tls>> |  |  | {nbsp}
-| Reconnection a| <<Reconnection>> |  When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy |  | {nbsp}
+| Reconnection a| <<Reconnection>> |  When the application is deployed, a connectivity test is performed on all connectors. If set to true, the deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy |  | {nbsp}
 | Client Id a| String |  The OAuth client id as registered with the service provider |  | *{y}*{nbsp}
 | Client Secret a| String |  The OAuth client secret as registered with the service provider |  | *{y}*{nbsp}
 | Token Url a| String |  The service provider's token endpoint URL |  default token URL | {nbsp}
@@ -171,7 +93,7 @@ The Commerce Cloud Data Connector is an Operation Based Connector, which means t
 == Assignments Search
 `<commerce-cloud-dataapi:assignment-search>`
 
-Searches for promotion campaign assignments. 
+Performs search operation for Assignments. 
 This operation makes an HTTP POST request to the /pricing/assignments/{{version}}/organizations/{{organizationId}}/assignments endpoint.
 
 
@@ -195,7 +117,7 @@ This operation makes an HTTP POST request to the /pricing/assignments/{{version}
 ** MINUTES
 ** HOURS
 ** DAYS |  A time unit which qualifies the Response Timeout |  | {nbsp}
-| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
+| Target Variable a| String |  The name of the variable on which the operation's output will be placed |  | {nbsp}
 | Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
 | Reconnection Strategy a| * <<Reconnect>>
 * <<ReconnectForever>> |  A retry strategy in case of connectivity errors |  | {nbsp}
@@ -209,9 +131,9 @@ This operation makes an HTTP POST request to the /pricing/assignments/{{version}
 | *Attributes Type* a| <<HttpResponseAttributes>>
 |===
 
-=== For Configurations
+=== Configurations
 
-* <<DataOauth2Configuration>> {nbsp}
+* <<DataConfiguration>> {nbsp}
 
 === Throws
 
@@ -407,8 +329,8 @@ a separate, non-blocking thread. |true |
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size a| Number | This is the amount of memory that will be allocated in order to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it will be expanded by according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  | 
-| Buffer Size Increment a| Number | This is by how much will be buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. |  | 
+| Initial Buffer Size a| Number | This is the amount of memory that will be allocated in order to consume the stream and provide random access to it. If the stream contains more data than that can be fit into this buffer, then it will be expanded by according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  | 
+| Buffer Size Increment a| Number | This is by how much the buffer size should be expanded if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. |  | 
 | Max Buffer Size a| Number | This is the maximum amount of memory that will be used. If more than that is used then a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised. A value lower or equal to zero means no limit. |  | 
 | Buffer Unit a| Enumeration, one of:
 
@@ -439,8 +361,8 @@ a separate, non-blocking thread. |true |
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size a| Number | This is the amount of instances that will be initially be allowed to be kept in memory in order to consume the stream and provide random access to it. If the stream contains more data than can fit into this buffer, then it will be expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. Default value is 100 instances. |  | 
-| Buffer Size Increment a| Number | This is by how much will the buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. Default value is 100 instances. |  | 
+| Initial Buffer Size a| Number | This is the amount of instances that will be initially be allowed to be kept in memory in order to consume the stream and provide random access to it. If the stream contains more data than that can fit into this buffer, then it will be expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. Default value is 100 instances. |  | 
+| Buffer Size Increment a| Number | This is by how much the buffer size should be expanded if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. Default value is 100 instances. |  | 
 | Max Buffer Size a| Number | This is the maximum amount of memory that will be used. If more than that is used then a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised. A value lower or equal to zero means no limit. |  | 
 |======================
 

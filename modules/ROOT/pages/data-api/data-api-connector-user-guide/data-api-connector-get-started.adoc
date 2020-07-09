@@ -39,14 +39,14 @@ To use Commerce Cloud Data Connector, you need:
 
 
 == Audience
-* Starting user
+* Starting user:
 To create your Mule app,
 see xref:data-api-connector-design-center.adoc[Design Center Configuration]
 or xref:data-api-connector-studio.adoc[Studio Configuration].The
 xref:data-api-connector-examples.adoc[Examples] topic provides one or more use
 cases for using the connector.
-* Power user
-Read the xref:data-api-connector-xml-maven.adoc[XML and Maven
+* Power user:
+Visit the xref:data-api-connector-xml-maven.adoc[XML and Maven
 Support] and xref:data-api-connector-examples.adoc[Examples] topics.
 
 == Common Use Cases For the Connector

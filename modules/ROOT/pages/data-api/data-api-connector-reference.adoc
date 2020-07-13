@@ -86,7 +86,297 @@ The Commerce Cloud Data Connector is an Operation Based Connector, which means t
 
 == Operations
 
+* <<AssignProductToCategory>> {nbsp}
+* <<AssignVariationForMasterProduct>> {nbsp}
+* <<AssignVariationGroupToMasterProduct>> {nbsp}
 * <<AssignmentsSearch>> {nbsp}
+* <<CampaignsSearch>> {nbsp}
+* <<CouponRedemptionsSearch>> {nbsp}
+* <<CouponsSearch>> {nbsp}
+* <<CreateAddressForCustomerInCustomerList>> {nbsp}
+* <<CreateCampaign>> {nbsp}
+* <<CreateCategoryInCatalog>> {nbsp}
+* <<CreateCoupon>> {nbsp}
+* <<CreateCustomerInCustomerList>> {nbsp}
+* <<CreateCustomerList>> {nbsp}
+* <<CreateGiftCertificate>> {nbsp}
+* <<CreateProduct>> {nbsp}
+* <<CreateProductOption>> {nbsp}
+* <<CreateProductOptionValue>> {nbsp}
+* <<CreatePromotion>> {nbsp}
+* <<CreateSourceCodeGroup>> {nbsp}
+* <<CreateVariationAttribute>> {nbsp}
+* <<CreateVariationAttributeValue>> {nbsp}
+* <<DeleteCampaign>> {nbsp}
+* <<DeleteCategoryFromCatalog>> {nbsp}
+* <<DeleteCoupon>> {nbsp}
+* <<DeleteCustomerFromCustomerList>> {nbsp}
+* <<DeleteGiftCertificate>> {nbsp}
+* <<DeleteProduct>> {nbsp}
+* <<DeleteProductOption>> {nbsp}
+* <<DeleteProductOptionValue>> {nbsp}
+* <<DeletePromotion>> {nbsp}
+* <<DeleteSourceCodeGroup>> {nbsp}
+* <<DeleteVariationAttribute>> {nbsp}
+* <<DeleteVariationAttributeValue>> {nbsp}
+* <<GetAddressForCustomerFromCustomerList>> {nbsp}
+* <<GetAddressesForCustomerFromCustomerList>> {nbsp}
+* <<GetAssignedProductFromCategory>> {nbsp}
+* <<GetCampaign>> {nbsp}
+* <<GetCatalog>> {nbsp}
+* <<GetCatalogs>> {nbsp}
+* <<GetCategoriesFromCatalog>> {nbsp}
+* <<GetCategoryFromCatalog>> {nbsp}
+* <<GetCoupon>> {nbsp}
+* <<GetCouponCodes>> {nbsp}
+* <<GetCustomerFromCustomerList>> {nbsp}
+* <<GetGiftCertificate>> {nbsp}
+* <<GetProduct>> {nbsp}
+* <<GetProductOption>> {nbsp}
+* <<GetProductOptionValue>> {nbsp}
+* <<GetProductOptions>> {nbsp}
+* <<GetPromotion>> {nbsp}
+* <<GetSourceCodeGroup>> {nbsp}
+* <<GetVariationAttribute>> {nbsp}
+* <<GetVariationAttributeValue>> {nbsp}
+* <<GetVariationAttributes>> {nbsp}
+* <<GetVariationForMasterProduct>> {nbsp}
+* <<GetVariationGroupForMasterProduct>> {nbsp}
+* <<GetVariationGroupsForMasterProduct>> {nbsp}
+* <<GetVariationsForMasterProduct>> {nbsp}
+* <<GiftCertificatesSearch>> {nbsp}
+* <<PromotionsSearch>> {nbsp}
+* <<RemoveAddressForCustomerInCustomerList>> {nbsp}
+* <<SearchCatalogs>> {nbsp}
+* <<SearchCategories>> {nbsp}
+* <<SearchCategoriesInCatalog>> {nbsp}
+* <<SearchCustomerInCustomerList>> {nbsp}
+* <<SearchProductVariations>> {nbsp}
+* <<SearchProducts>> {nbsp}
+* <<SearchProductsAssignedToCategory>> {nbsp}
+* <<SourceCodeGroupsSearch>> {nbsp}
+* <<UnassignProductFromCategory>> {nbsp}
+* <<UnassignVariationFromMasterProduct>> {nbsp}
+* <<UnassignVariationGroupFromMasterProduct>> {nbsp}
+* <<UpdateAddressForCustomerInCustomerList>> {nbsp}
+* <<UpdateCampaign>> {nbsp}
+* <<UpdateCatalog>> {nbsp}
+* <<UpdateCategoryInCatalog>> {nbsp}
+* <<UpdateCoupon>> {nbsp}
+* <<UpdateCouponCodes>> {nbsp}
+* <<UpdateCustomerInCustomerList>> {nbsp}
+* <<UpdateGiftCertificate>> {nbsp}
+* <<UpdateOrder>> {nbsp}
+* <<UpdateOrderConfirmationStatus>> {nbsp}
+* <<UpdateOrderExportStatus>> {nbsp}
+* <<UpdateOrderExternalStatus>> {nbsp}
+* <<UpdateOrderPaymentInstrument>> {nbsp}
+* <<UpdateOrderPaymentStatus>> {nbsp}
+* <<UpdateOrderPaymentTransaction>> {nbsp}
+* <<UpdateOrderShippingAddress>> {nbsp}
+* <<UpdateOrderShippingStatus>> {nbsp}
+* <<UpdateOrderStatus>> {nbsp}
+* <<UpdateProduct>> {nbsp}
+* <<UpdateProductCategoryAssignment>> {nbsp}
+* <<UpdateProductOption>> {nbsp}
+* <<UpdateProductOptionValue>> {nbsp}
+* <<UpdatePromotion>> {nbsp}
+* <<UpdateSourceCodeGroup>> {nbsp}
+* <<UpdateVariationAttribute>> {nbsp}
+* <<UpdateVariationAttributeValue>> {nbsp}
+* <<UpdateVariationForMasterProduct>> {nbsp}
+* <<UpdateVariationGroupForMasterProduct>> {nbsp}
+* <<Unauthorize>> {nbsp}
+
+
+[[AssignProductToCategory]]
+== Assign Product To Category
+`<commerce-cloud-dataapi:assign-product-to-category>`
+
+Creates a category product assignment using the information provided.. 
+This operation makes an HTTP PUT request to the /product/catalogs/{version}/organizations/{organizationId}/products/{productId} endpoint.
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *{y}*{nbsp}
+| version a| String |  The version of api |  | *{y}*{nbsp}
+| organizationId a| String |  The organization Id|  | *{y}*{nbsp}
+| productId a| String |  The product Id|  | *{y}*{nbsp}
+| siteId a| String |  the site Id is the Query param to query the data for a specific Site |  | *{y}*{nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *{y}*{nbsp}
+| Response Timeout a| Number |  The timeout for request to the remote service. |  | {nbsp}
+| Response Timeout Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  A time unit which qualifies the Response Timeout |  | {nbsp}
+| Target Variable a| String |  The name of the variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+| Reconnection Strategy a| * <<Reconnect>>
+* <<ReconnectForever>> |  A retry strategy in case of connectivity errors |  | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| String
+| *Attributes Type* a| <<HttpResponseAttributes>>
+|===
+
+=== Configurations
+
+* <<DataConfiguration>> {nbsp}
+
+=== Throws
+
+* DATA:BAD_REQUEST {nbsp}
+* DATA:CLIENT_ERROR {nbsp}
+* DATA:CONNECTIVITY {nbsp}
+* DATA:INTERNAL_SERVER_ERROR {nbsp}
+* DATA:NOT_ACCEPTABLE {nbsp}
+* DATA:NOT_FOUND {nbsp}
+* DATA:RETRY_EXHAUSTED {nbsp}
+* DATA:SERVER_ERROR {nbsp}
+* DATA:SERVICE_UNAVAILABLE {nbsp}
+* DATA:TIMEOUT {nbsp}
+* DATA:TOO_MANY_REQUESTS {nbsp}
+* DATA:UNAUTHORIZED {nbsp}
+* DATA:UNSUPPORTED_MEDIA_TYPE {nbsp}
+
+[[AssignVariationForMasterProduct]]
+== Assign Variation For Master Product
+`<commerce-cloud-dataapi:assign-variation-for-master-product>`
+
+Assign a variation for a product master. If the variation product does not initially exist, one is created using the body passed in 
+This operation makes an HTTP PUT request to the /product/catalogs/{version}/organizations/{organizationId}/{masterProductId}/variations endpoint.
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *{y}*{nbsp}
+| version a| String |  The version of api |  | *{y}*{nbsp}
+| organizationId a| String |  The organization Id|  | *{y}*{nbsp}
+| masterProductId a| String |  The master product Id|  | *{y}*{nbsp}
+| siteId a| String |  the site Id is the Query param to query the data for a specific Site |  | *{y}*{nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *{y}*{nbsp}
+| Response Timeout a| Number |  The timeout for request to the remote service. |  | {nbsp}
+| Response Timeout Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  A time unit which qualifies the Response Timeout |  | {nbsp}
+| Target Variable a| String |  The name of the variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+| Reconnection Strategy a| * <<Reconnect>>
+* <<ReconnectForever>> |  A retry strategy in case of connectivity errors |  | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| String
+| *Attributes Type* a| <<HttpResponseAttributes>>
+|===
+
+=== Configurations
+
+* <<DataConfiguration>> {nbsp}
+
+=== Throws
+
+* DATA:BAD_REQUEST {nbsp}
+* DATA:CLIENT_ERROR {nbsp}
+* DATA:CONNECTIVITY {nbsp}
+* DATA:INTERNAL_SERVER_ERROR {nbsp}
+* DATA:NOT_ACCEPTABLE {nbsp}
+* DATA:NOT_FOUND {nbsp}
+* DATA:RETRY_EXHAUSTED {nbsp}
+* DATA:SERVER_ERROR {nbsp}
+* DATA:SERVICE_UNAVAILABLE {nbsp}
+* DATA:TIMEOUT {nbsp}
+* DATA:TOO_MANY_REQUESTS {nbsp}
+* DATA:UNAUTHORIZED {nbsp}
+* DATA:UNSUPPORTED_MEDIA_TYPE {nbsp}
+
+[[AssignVariationGroupToMasterProduct]]
+== Assign Variation Group To Master Product
+`<commerce-cloud-dataapi:assign-variation-group-to-master-product>`
+
+Assign a variation group for a product master. If the variation group product does not initially exist, one is created using the body passed in.
+This operation makes an HTTP PUT request to the /product/catalogs/{version}/organizations/{organizationId}/{masterProductId}/variation-groups endpoint.
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *{y}*{nbsp}
+| version a| String |  The version of api |  | *{y}*{nbsp}
+| organizationId a| String |  The organization Id|  | *{y}*{nbsp}
+| masterProductId a| String |  The master product Id|  | *{y}*{nbsp}
+| siteId a| String |  the site Id is the Query param to query the data for a specific Site |  | *{y}*{nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *{y}*{nbsp}
+| Response Timeout a| Number |  The timeout for request to the remote service. |  | {nbsp}
+| Response Timeout Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  A time unit which qualifies the Response Timeout |  | {nbsp}
+| Target Variable a| String |  The name of the variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+| Reconnection Strategy a| * <<Reconnect>>
+* <<ReconnectForever>> |  A retry strategy in case of connectivity errors |  | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| String
+| *Attributes Type* a| <<HttpResponseAttributes>>
+|===
+
+=== Configurations
+
+* <<DataConfiguration>> {nbsp}
+
+=== Throws
+
+* DATA:BAD_REQUEST {nbsp}
+* DATA:CLIENT_ERROR {nbsp}
+* DATA:CONNECTIVITY {nbsp}
+* DATA:INTERNAL_SERVER_ERROR {nbsp}
+* DATA:NOT_ACCEPTABLE {nbsp}
+* DATA:NOT_FOUND {nbsp}
+* DATA:RETRY_EXHAUSTED {nbsp}
+* DATA:SERVER_ERROR {nbsp}
+* DATA:SERVICE_UNAVAILABLE {nbsp}
+* DATA:TIMEOUT {nbsp}
+* DATA:TOO_MANY_REQUESTS {nbsp}
+* DATA:UNAUTHORIZED {nbsp}
+* DATA:UNSUPPORTED_MEDIA_TYPE {nbsp}
 
 
 [[AssignmentsSearch]]
@@ -95,6 +385,255 @@ The Commerce Cloud Data Connector is an Operation Based Connector, which means t
 
 Performs search operation for Assignments. 
 This operation makes an HTTP POST request to the /pricing/assignments/{{version}}/organizations/{{organizationId}}/assignments endpoint.
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *{y}*{nbsp}
+| version a| String |  The version of api |  | *{y}*{nbsp}
+| organizationId a| String |  The organization Id|  | *{y}*{nbsp}
+| siteId a| String |  the site Id is the Query param to query the data for a specific Site |  | *{y}*{nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *{y}*{nbsp}
+| Response Timeout a| Number |  The timeout for request to the remote service. |  | {nbsp}
+| Response Timeout Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  A time unit which qualifies the Response Timeout |  | {nbsp}
+| Target Variable a| String |  The name of the variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+| Reconnection Strategy a| * <<Reconnect>>
+* <<ReconnectForever>> |  A retry strategy in case of connectivity errors |  | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| String
+| *Attributes Type* a| <<HttpResponseAttributes>>
+|===
+
+=== Configurations
+
+* <<DataConfiguration>> {nbsp}
+
+=== Throws
+
+* DATA:BAD_REQUEST {nbsp}
+* DATA:CLIENT_ERROR {nbsp}
+* DATA:CONNECTIVITY {nbsp}
+* DATA:INTERNAL_SERVER_ERROR {nbsp}
+* DATA:NOT_ACCEPTABLE {nbsp}
+* DATA:NOT_FOUND {nbsp}
+* DATA:RETRY_EXHAUSTED {nbsp}
+* DATA:SERVER_ERROR {nbsp}
+* DATA:SERVICE_UNAVAILABLE {nbsp}
+* DATA:TIMEOUT {nbsp}
+* DATA:TOO_MANY_REQUESTS {nbsp}
+* DATA:UNAUTHORIZED {nbsp}
+* DATA:UNSUPPORTED_MEDIA_TYPE {nbsp}
+
+[[CampaignsSearch]]
+== Campaigns Search
+`<commerce-cloud-dataapi:campaigns-search>`
+
+Searches for campaigns using a search request object that allows filtering on various attributes.
+This operation makes an HTTP PUT request to the /pricing/campaigns/{version}/organizations/{organizationId}/campaigns endpoint.
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *{y}*{nbsp}
+| version a| String |  The version of api |  | *{y}*{nbsp}
+| organizationId a| String |  The organization Id|  | *{y}*{nbsp}
+| siteId a| String |  the site Id is the Query param to query the data for a specific Site |  | *{y}*{nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *{y}*{nbsp}
+| Response Timeout a| Number |  The timeout for request to the remote service. |  | {nbsp}
+| Response Timeout Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  A time unit which qualifies the Response Timeout |  | {nbsp}
+| Target Variable a| String |  The name of the variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+| Reconnection Strategy a| * <<Reconnect>>
+* <<ReconnectForever>> |  A retry strategy in case of connectivity errors |  | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| String
+| *Attributes Type* a| <<HttpResponseAttributes>>
+|===
+
+=== Configurations
+
+* <<DataConfiguration>> {nbsp}
+
+=== Throws
+
+* DATA:BAD_REQUEST {nbsp}
+* DATA:CLIENT_ERROR {nbsp}
+* DATA:CONNECTIVITY {nbsp}
+* DATA:INTERNAL_SERVER_ERROR {nbsp}
+* DATA:NOT_ACCEPTABLE {nbsp}
+* DATA:NOT_FOUND {nbsp}
+* DATA:RETRY_EXHAUSTED {nbsp}
+* DATA:SERVER_ERROR {nbsp}
+* DATA:SERVICE_UNAVAILABLE {nbsp}
+* DATA:TIMEOUT {nbsp}
+* DATA:TOO_MANY_REQUESTS {nbsp}
+* DATA:UNAUTHORIZED {nbsp}
+* DATA:UNSUPPORTED_MEDIA_TYPE {nbsp}
+
+
+[[CouponRedemptionsSearch]]
+== Coupon Redemptions Search
+`<commerce-cloud-dataapi:coupon-redemptions-search>`
+
+Searches for coupon redemptions. The Coupon Redemption Search document contains a search object that allows filtering on various attributes.
+This operation makes an HTTP POST request to the /pricing/coupons/{version}/organizations/{organizationId}/coupons/redemptions endpoint.
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *{y}*{nbsp}
+| version a| String |  The version of api |  | *{y}*{nbsp}
+| organizationId a| String |  The organization Id|  | *{y}*{nbsp}
+| siteId a| String |  the site Id is the Query param to query the data for a specific Site |  | *{y}*{nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *{y}*{nbsp}
+| Response Timeout a| Number |  The timeout for request to the remote service. |  | {nbsp}
+| Response Timeout Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  A time unit which qualifies the Response Timeout |  | {nbsp}
+| Target Variable a| String |  The name of the variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+| Reconnection Strategy a| * <<Reconnect>>
+* <<ReconnectForever>> |  A retry strategy in case of connectivity errors |  | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| String
+| *Attributes Type* a| <<HttpResponseAttributes>>
+|===
+
+=== Configurations
+
+* <<DataConfiguration>> {nbsp}
+
+=== Throws
+
+* DATA:BAD_REQUEST {nbsp}
+* DATA:CLIENT_ERROR {nbsp}
+* DATA:CONNECTIVITY {nbsp}
+* DATA:INTERNAL_SERVER_ERROR {nbsp}
+* DATA:NOT_ACCEPTABLE {nbsp}
+* DATA:NOT_FOUND {nbsp}
+* DATA:RETRY_EXHAUSTED {nbsp}
+* DATA:SERVER_ERROR {nbsp}
+* DATA:SERVICE_UNAVAILABLE {nbsp}
+* DATA:TIMEOUT {nbsp}
+* DATA:TOO_MANY_REQUESTS {nbsp}
+* DATA:UNAUTHORIZED {nbsp}
+* DATA:UNSUPPORTED_MEDIA_TYPE {nbsp}
+
+[[CouponsSearch]]
+== Coupons Search
+`<commerce-cloud-dataapi:coupons-search>`
+
+Searches for coupons.
+This operation makes an HTTP POST request to the /pricing/coupons/{version}/organizations/{organizationId} endpoint.
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *{y}*{nbsp}
+| version a| String |  The version of api |  | *{y}*{nbsp}
+| organizationId a| String |  The organization Id|  | *{y}*{nbsp}
+| siteId a| String |  the site Id is the Query param to query the data for a specific Site |  | *{y}*{nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *{y}*{nbsp}
+| Response Timeout a| Number |  The timeout for request to the remote service. |  | {nbsp}
+| Response Timeout Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  A time unit which qualifies the Response Timeout |  | {nbsp}
+| Target Variable a| String |  The name of the variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+| Reconnection Strategy a| * <<Reconnect>>
+* <<ReconnectForever>> |  A retry strategy in case of connectivity errors |  | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| String
+| *Attributes Type* a| <<HttpResponseAttributes>>
+|===
+
+=== Configurations
+
+* <<DataConfiguration>> {nbsp}
+
+=== Throws
+
+* DATA:BAD_REQUEST {nbsp}
+* DATA:CLIENT_ERROR {nbsp}
+* DATA:CONNECTIVITY {nbsp}
+* DATA:INTERNAL_SERVER_ERROR {nbsp}
+* DATA:NOT_ACCEPTABLE {nbsp}
+* DATA:NOT_FOUND {nbsp}
+* DATA:RETRY_EXHAUSTED {nbsp}
+* DATA:SERVER_ERROR {nbsp}
+* DATA:SERVICE_UNAVAILABLE {nbsp}
+* DATA:TIMEOUT {nbsp}
+* DATA:TOO_MANY_REQUESTS {nbsp}
+* DATA:UNAUTHORIZED {nbsp}
+* DATA:UNSUPPORTED_MEDIA_TYPE {nbsp}
+
+[[CreateAddressForCustomerInCustomerList]]
+== Create Address For Customer In Customer List
+`<commerce-cloud-dataapi:create-address-for-customer-in-customer-list>`
+
+Searches for coupons.
+This operation makes an HTTP POST request to the /pricing/coupons/{version}/organizations/{organizationId} endpoint.
 
 
 === Parameters

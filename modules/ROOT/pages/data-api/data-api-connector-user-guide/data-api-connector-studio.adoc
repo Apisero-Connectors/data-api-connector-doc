@@ -63,6 +63,7 @@ Commerce Cloud Data Connector supports only one type of connection provider:
 |Client Id | Client ID
 |Client Secret | Client Secret
 |Token url | Token URL
+|Scopes | Scopes for acess
 |============
 
 image::data-api/oauth2-configuration/data-api-connector-oauth2-configuration.jpg[]

@@ -64,6 +64,7 @@ Design Center automatically saves all changes.
 |*Token URI*|URL to access token| {y}
 |*Client Id*|Client ID of commerce cloud account| {y}
 |*Client Secret*|Client secret of commerce cloud account| {y}
+|*Scopes*|Scopes for access| {y}
 |===
 +
 

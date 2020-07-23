@@ -35,7 +35,7 @@ To use Commerce Cloud Data Connector, you need:
 
 * Anypoint Studio version 7 and later
 * Commerce Cloud Data Connector
-* Commerce cloud credentials to access Data API
+* Commerce cloud credentials such as client Id, Client Secret, Scopes to access Data API which the user needs to get from the Salesforce team. 
 
 
 == Audience

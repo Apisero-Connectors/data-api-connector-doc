@@ -75,15 +75,15 @@ image::data-api/oauth2-configuration/data-api-connector-oauth2-configuration.jpg
 
 image::data-api/oauth2-configuration/data-api-connector-oauth2-test-connection.jpg[]
 
-[start = 6]
+[start = 8]
 . A successful OAuth2 Application Connection Provider configuration looks like this:
 
-```xml
-	<commerce-cloud-dataapi:config name="Commerce_Cloud_Data_Connector_Config" doc:name="Commerce Cloud Data Connector Config" doc:id="11c1cb1b-3e4a-4aa8-a108-d86ab274d50f" >
+```
+   <commerce-cloud-dataapi:config name="Commerce_Cloud_Data_Connector_Config" doc:name="Commerce Cloud Data Connector Config" doc:id="ede16287-3db2-41e9-a836-0cd19d1bfcfa" >
 		<commerce-cloud-dataapi:am-oauth2-connection baseUri="${data.baseUri}" >
-			<commerce-cloud-dataapi:oauth-client-credentials clientId="${data.clientId}" clientSecret="${data.clientSecret}" tokenUrl="${data.tokenUrl}"/>
+			<commerce-cloud-dataapi:oauth-client-credentials clientId="${data.clientId}" clientSecret="${data.clientSecret}" tokenUrl="${data.tokenUrl}" scopes="${data.scopes}"/>
 		</commerce-cloud-dataapi:am-oauth2-connection>
-	</commerce-cloud-dataapi:config>
+   </commerce-cloud-dataapi:config>
 ```
 
 == Configure an Input Source

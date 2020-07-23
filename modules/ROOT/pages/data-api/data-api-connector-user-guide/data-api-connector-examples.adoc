@@ -93,6 +93,8 @@ http://www.mulesoft.org/schema/mule/commerce-cloud-dataapi http://www.mulesoft.o
 
 
 ```
+ After adding the above code in the Configuration XML tab, you will be able to see the flow in the 
+ Message Flow Tab canvas.
 
 == See Also
 * https://forums.mulesoft.com[MuleSoft Forum]
